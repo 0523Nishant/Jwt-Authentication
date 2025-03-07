@@ -47,3 +47,21 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/jwt-authentication-springboot.git
+
+### Structure
+ ```bash
+src/
+ ├── main/
+ │    ├── java/
+ │    │    └── com/
+ │    │         └── example/
+ │    │             ├── config/          # Security & JWT configuration
+ │    │             ├── controller/      # API Controllers
+ │    │             ├── model/           # User, Role, and other models
+ │    │             ├── repository/      # JPA Repositories
+ │    │             └── service/         # Business logic for JWT & user management
+ │    └── resources/
+ │         └── application.properties    # Application configurations
+ └── test/
+      └── java/                         # Unit and integration tests
+
