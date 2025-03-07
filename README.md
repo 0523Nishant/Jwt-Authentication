@@ -48,7 +48,7 @@ Before you begin, ensure you have the following installed:
    ```bash
    git clone https://github.com/your-username/jwt-authentication-springboot.git
 
-### Structure
+### Structure ⚙️
  ```bash
 src/
  ├── main/
@@ -65,3 +65,34 @@ src/
  └── test/
       └── java/                         # Unit and integration tests
 
+### SQL ⚙️
+ ```bash
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
+ ```bash
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(120) NOT NULL,
+    CONSTRAINT unique_username UNIQUE (username),
+    CONSTRAINT unique_email UNIQUE (email)
+);
+ ```bash
+CREATE TABLE user_roles (
+    user_id BIGINT NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE
+);
+
+Endpoints 🏗️
+ ```bash
+{
+  "username": "your-username",
+  "password": "your-password"
+}
